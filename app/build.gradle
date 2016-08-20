@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+repositories {
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.1"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "moe.tlaster.oneechan"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        jackOptions {
+            enabled true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:recyclerview-v7:+'
+    compile 'joda-time:joda-time:2.9.4'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile project(':lite-http-3.0.1')
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+}
